@@ -13,18 +13,14 @@ parameters {
 
 transformed parameters {
     cov_matrix[2] T; //covariance matrix
-    T[1,1] <- sig[1] * sig[1];
-    T[1,2] <- rho * sig[1] * sig[2];
-    T[2,1] <- rho * sig[1] * sig[2];
-    T[2,2] <- sig[2] * sig[2];
-    }
+    T[1,1] = sig[1] * sig[1];
+    T[1,2] = rho * sig[1] * sig[2];
+    T[2,1] = rho * sig[1] * sig[2];
+    T[2,2] = sig[2] * sig[2];
 }
 
 model {
-
     X ~ multi_normal(mu, T);
-
     // or use T distribution for robust correlation:
     // X ~ multi_student_t(1, mu, T);
-
 }

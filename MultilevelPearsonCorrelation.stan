@@ -22,10 +22,10 @@ transformed parameters {
     // Covariance matrix for each subject
     cov_matrix[2] T[Ns]; 
     for (iS in 1:Ns) { //compute for each subject
-        T[iS][1,1] <- square(sig_s[iS][1]);
-        T[iS][1,2] <- rho_s[iS] * sig_s[iS][1] * sig_s[iS][2];
-        T[iS][2,1] <- rho_s[iS] * sig_s[iS][1] * sig_s[iS][2];
-        T[iS][2,2] <- square(sig_s[iS][2]);
+        T[iS][1,1] = square(sig_s[iS][1]);
+        T[iS][1,2] = rho_s[iS] * sig_s[iS][1] * sig_s[iS][2];
+        T[iS][2,1] = rho_s[iS] * sig_s[iS][1] * sig_s[iS][2];
+        T[iS][2,2] = square(sig_s[iS][2]);
     }
 
     // Covariance matrix for population means
